@@ -24,6 +24,7 @@ public class TestConcurrencyUsingCountDownLatch {
         service.submit(underTest.getRunnableOne());
         service.submit(underTest.getRunnableTwo());
         service.submit(underTest.getRunnableThree());
+        service.shutdown();
     }
 
 }
