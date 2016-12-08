@@ -10,6 +10,7 @@ public class TestNanoTimeWait {
         final long time = System.currentTimeMillis();
         for (final long nano = System.nanoTime(); nano == System.nanoTime(););
         Assert.assertEquals(0, System.currentTimeMillis() - time);
+
     }
 
 }
