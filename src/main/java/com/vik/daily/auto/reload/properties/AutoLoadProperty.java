@@ -10,10 +10,13 @@ import org.springframework.stereotype.Component;
 public class AutoLoadProperty {
 
     private PropertiesConfiguration configuration;
+    private static final String FILEPATH = System.getProperty("user.home") + "/workspace/PetProjects/DailyLearning/src/main/resources/app.properties";
 
     @PostConstruct
     private void init() {
         try {
+
+            configuration = new PropertiesConfiguration(FILEPATH);
             final FileChangedReloadingStrategy fileChangeReloadStrategy = new FileChangedReloadingStrategy();
             fileChangeReloadStrategy.setRefreshDelay(1000);
             configuration.setReloadingStrategy(fileChangeReloadStrategy);
