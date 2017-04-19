@@ -25,6 +25,13 @@ public class SpringExpressionTest {
         Assert.assertTrue(exp.getValue(user, Boolean.class));
     }
 
+    @Test
+    public void testArrayExpression() {
+        Expression exp = parser.parseExpression("new int[]{1,2,3}");
+        Object value = exp.getValue();
+        Assert.assertTrue(value.getClass().isArray());
+    }
+
     private class User {
 
         private String firstName;

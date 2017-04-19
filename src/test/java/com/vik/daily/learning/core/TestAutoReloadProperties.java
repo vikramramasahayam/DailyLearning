@@ -1,5 +1,6 @@
 package com.vik.daily.learning.core;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ public class TestAutoReloadProperties {
     private AutoLoadProperty applicationProperties;
 
     @Test
+    @Ignore
     public void testAppProperties() throws Exception {
 
         final long currentTime = System.currentTimeMillis();

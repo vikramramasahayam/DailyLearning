@@ -1,15 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" xmlns:util="http://www.springframework.org/schema/util"
   xsi:schemaLocation="
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd 
-       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/util 
+ http://www.springframework.org/schema/util/spring-util.xsd">
 
   <!-- scans for annotated classes in the com.company package -->
   <context:component-scan base-package="com.vik" />
 
   <!-- enables annotation based configuration -->
   <context:annotation-config />
+  <!-- 
+  <bean id="person" class="com.vik.Person">
+    <constructor-arg>
+      <value>Jack</value>
+    </constructor-arg>
+  </bean>
+   -->
+ <!--  <bean id="config" class="com.vik.Configuration"/>  -->
+
+<!--  
+   <context:property-placeholder properties-ref="prop"/>
+        
+        <util:properties id="prop" location="reso"/>
+        
+        <bean id="reso" class="org.springframework.core.io.FileSystemResource">
+            <constructor-arg index="0" value="file:\/Users\/vramasahayam\/tmp\/training-standalone.properties" />
+        </bean>
+  -->
+
+   
+ <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="locations">
+      <list>
+        <value>file:${microservice.property}</value>
+      </list>
+    </property>
+ </bean>
+
+  <bean id="person" class="com.vik.Person">
+      <property name="firstName" value="${neuron.webservices.url}"/>
+      <property name="lastName" value="${neuron.app.id}"/>
+  </bean>
+    
 
 </beans>

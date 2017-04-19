@@ -1,9 +1,15 @@
 package com.vik.daily.learning.core;
 
+import java.io.IOException;
+import java.nio.charset.Charset;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
 
 import org.hamcrest.Matchers;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -37,6 +43,43 @@ public class UtilitesTest {
         boolean flag = false;
         expected.expect(IllegalStateException.class);
         org.springframework.util.Assert.state(flag, "There was an IllegalState Exception");
+    }
+
+    @Test
+    @Ignore
+    public void testRuntimeExec() throws IOException {
+        Process process = Runtime.getRuntime().exec("java -version");
+        String output = new Scanner(process.getInputStream(), "UTF-16").useDelimiter("\\A").next();
+        System.out.println(output);
+    }
+
+    @Test
+    public void testCount() {
+        List<Double> scores = Arrays.asList(0.0, 1.0, 0.0);
+        System.out.println(Collections.frequency(scores, 0.0));
+    }
+
+    @Test
+    public void testNullWithEquals() {
+        List<String> fields = Arrays.asList("", " ", "   ");
+
+        fields.forEach((field) -> {
+            System.out.println("".equals(field.trim()));
+        });
+    }
+
+    @Test
+    public void testNullWithIsEmpty() {
+        List<String> fields = Arrays.asList("", " ", "   ");
+
+        fields.forEach((field) -> {
+            System.out.println(field.trim().isEmpty());
+        });
+    }
+
+    @Test
+    public void testCharSet() {
+        System.out.println(Charset.forName(System.getProperty("file.encoding")).name());
     }
 
 }

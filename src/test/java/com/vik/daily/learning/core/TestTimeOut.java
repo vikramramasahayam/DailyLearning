@@ -1,5 +1,6 @@
 package com.vik.daily.learning.core;
 
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -10,6 +11,7 @@ public class TestTimeOut {
     public ExpectedException thrown = ExpectedException.none();
 
     @Test(timeout = 100)
+    @Ignore
     public void testTimeout() throws InterruptedException {
         System.out.println("Starting the test");
         Thread.currentThread().sleep(10000);
@@ -17,6 +19,7 @@ public class TestTimeOut {
     }
 
     @Test
+    @Ignore
     public void testDumpStack() {
         Thread.dumpStack();
     }
