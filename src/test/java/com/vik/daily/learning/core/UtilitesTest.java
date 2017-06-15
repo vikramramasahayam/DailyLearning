@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.IntStream;
 
 import org.hamcrest.Matchers;
 import org.junit.Assert;
@@ -80,6 +81,11 @@ public class UtilitesTest {
     @Test
     public void testCharSet() {
         System.out.println(Charset.forName(System.getProperty("file.encoding")).name());
+    }
+
+    @Test
+    public void testRange() {
+        IntStream.range(1, 5).forEach(i -> System.out.println(i));
     }
 
 }
