@@ -1,18 +1,12 @@
 package com.vik.learning.streams;
 
 import java.io.Serializable;
-import java.util.Arrays;
 import java.util.function.Function;
 import java.util.stream.IntStream;
 
 public class UseSerializableFunctions {
 
     public static void main(final String[] args) {
-        State pa = new State(Arrays.asList("Philly", "Pittsburg"));
-        State tn = new State(Arrays.asList("Memphis", "Nashville"));
-        State al = new State(Arrays.asList("Mobile", "Hundsville"));
-
-        Arrays.asList(pa, tn, al);
         String[] cityNames = { "Philly", "Pittsburg" };
 
         final SampleFunction<Object[], Test> getCity = cities -> (final int i) -> cities[i];
