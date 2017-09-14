@@ -1,7 +1,11 @@
 package com.vik.daily.learning.core;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import java.util.stream.Stream.Builder;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -52,6 +56,20 @@ public class StreamTest {
 
     private static void log() {
         System.out.println("inside log " + count.incrementAndGet());
+    }
+
+    @Test
+    public void StringBuilderTest() {
+        List<String> values = Arrays.asList("one", "two", "three");
+        Builder<String> builder = Stream.builder();
+        values.forEach(value -> {
+            builder.add(value);
+        });
+
+        Stream<String> stream = builder.build();
+
+        List<String> returnedValues = stream.collect(Collectors.toList());
+        Assert.assertEquals(values, returnedValues);
     }
 
 }

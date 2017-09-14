@@ -149,4 +149,9 @@ public class UtilitesTest {
         System.out.println(String.format("Schema %s , HostName %s , Path %s", uri.getScheme(), uri.getHost(), uri.getPath()));
     }
 
+    @Test
+    public void testOptional() {
+
+    }
+
 }
