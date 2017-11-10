@@ -13,4 +13,8 @@ public abstract class XmlBaseTemplate extends BaseTemplate {
         super(templateEngine, model, modelTypes, configuration);
     }
 
+    public void helloWorld() {
+        System.out.println("Inside hello World method");
+    }
+
 }
