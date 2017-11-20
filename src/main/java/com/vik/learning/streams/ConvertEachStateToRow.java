@@ -34,7 +34,7 @@ public class ConvertEachStateToRow {
         // System.out.println(row.get(0));
         // });
 
-        Stream<String[]> data_rows = rows.map(row -> {
+        rows.map(row -> {
             return IntStream.range(0, 2).mapToObj(i -> {
                 String value = row.get(i).toString();
                 System.out.println("Value is : " + value);
@@ -42,10 +42,10 @@ public class ConvertEachStateToRow {
             }).toArray(String[]::new);
         });
 
-        data_rows.map(row -> {
-            System.out.println(Arrays.toString(row));
-            return row;
-        });
+        // data_rows.map(row -> {
+        // System.out.println(Arrays.toString(row));
+        // return row;
+        // });
 
         // Stream<Stream<Row>> streamedRows = IntStream.range(0, states.size() - 1).mapToObj(i -> {
         // Stream<Row> rows = states.stream().map(state -> convert.apply(state));

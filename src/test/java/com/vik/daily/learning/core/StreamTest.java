@@ -72,4 +72,11 @@ public class StreamTest {
         Assert.assertEquals(values, returnedValues);
     }
 
+    @Test
+    public void findMinListValue() {
+        Stream<Integer> numbers = Stream.of(1, -1, 0, 2);
+        Integer min = numbers.min((o1, o2) -> Integer.compare(o1, o2)).get();
+        System.out.println("Min : " + min);
+    }
+
 }
